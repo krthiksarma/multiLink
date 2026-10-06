@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link in Bio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+        }
+    </script>
+    <style>
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f8fafc !important;
+                color: #0f172a !important;
+            }
+            .glass-dark {
+                background: rgba(0, 0, 0, 0.03);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-white min-h-screen flex flex-col items-center py-6 px-4 selection:bg-purple-500 selection:text-white">
+
+    <div class="w-full max-w-md mx-auto flex flex-col items-center">
+
+        <!-- Top Header & Profile Section -->
+        <div class="relative w-20 h-20 rounded-full overflow-hidden border-2 border-purple-500 shadow-xl mb-3">
+            <img src="image/profile.jpg" alt="Profile" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="flex items-center space-x-1 mb-1">
+            <h1 class="text-lg font-bold">Emma </h1>
+            <i class="fa-solid fa-circle-check text-blue-400 text-sm"></i>
+        </div>
+
+        <!-- Follower Count Display -->
+        <div class="text-xs font-medium opacity-75 mb-4 flex items-center space-x-1">
+            <span>18K Total Followers</span>
+            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </div>
+
+        <!-- Quick Top Social Row (Telegram, X, OnlyFans) -->
+        <div class="flex items-center space-x-4 mb-6 bg-white/5 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md">
+            <a href="https://t.me/emmasmiths7" target="_blank" class="w-9 h-9 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center hover:scale-110 transition"><i class="fa-brands fa-telegram text-sm"></i></a>
+            <a href="https://x.com/smithsemma7?s=11" target="_blank" class="w-9 h-9 rounded-full bg-slate-700/50 text-white flex items-center justify-center hover:scale-110 transition">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.patreon.com/emmasmiths?utm_campaign=creatorshare_creator" target="_blank" class="w-9 h-9 rounded-full bg-sky-400/20 text-sky-400 flex items-center justify-center hover:scale-110 transition"><i class="fa-solid fa-star text-sm"></i></a>
+        </div>
+
+        <!-- Interactive Main Featured Image Card (Opens Gallery) -->
+        <div onclick="openGallery()" class="w-full h-72 rounded-3xl overflow-hidden relative shadow-2xl cursor-pointer group mb-6 border border-white/10">
+            <img src="image/main.jpg" alt="Exclusive Content" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
+                <div class="flex items-center justify-between w-full">
+                    <span class="text-white font-semibold text-base tracking-wide flex items-center space-x-2">
+                        <span>exclusive content</span> 
+                        <span class="text-pink-400">💖</span>
+                    </span>
+                    <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white font-medium flex items-center space-x-1">
+                        <i class="fa-solid fa-images"></i> <span>View 6 Photos</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Social Links (Telegram -> Twitter -> OnlyFans) -->
+        <div class="w-full space-y-3 mb-6">
+            
+            <!-- Telegram -->
+            <a href="https://t.me/emmasmiths7" target="_blank" class="glass-dark block p-3.5 rounded-2xl hover:scale-[1.01] transition group">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-sky-500/20 flex items-center justify-center text-sky-400 text-lg">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold text-sm group-hover:text-sky-400 transition">Telegram</h2>
+                            <p class="text-[11px] opacity-60">DM me on Telegram</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
+                </div>
+            </a>
+
+            <!-- Twitter / X -->
+            <a href="https://x.com/smithsemma7?s=11" target="_blank" class="glass-dark block p-3.5 rounded-2xl hover:scale-[1.01] transition group">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-slate-700/50 flex items-center justify-center text-white text-base">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold text-sm transition">Twitter / X</h2>
+                            <p class="text-[11px] opacity-60">Catch my daily thoughts & posts</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
+                </div>
+            </a>
+
+            <!-- OnlyFans -->
+            <a href="https://www.patreon.com/emmasmiths?utm_campaign=creatorshare_creator" target="_blank" class="glass-dark block p-3.5 rounded-2xl hover:scale-[1.01] transition group border-sky-400/30">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-sky-500/20 flex items-center justify-center text-sky-400 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold text-sm group-hover:text-sky-300 transition">OnlyFans (VIP Access)</h2>
+                            <p class="text-[11px] opacity-60">Unlock exclusive media & posts</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Ad Banner Space -->
+        <div class="w-full glass-dark rounded-2xl p-4 text-center mb-6 border-dashed border-white/20">
+            <p class="text-[10px] uppercase tracking-widest opacity-40 mb-2">Advertisement</p>
+            <div class="h-16 rounded-xl bg-black/20 flex items-center justify-center text-xs opacity-50">
+                <span>Your Ad Banner Space</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-[11px] opacity-40 pb-4">
+            &copy; 2026 Your Name. All rights reserved.
+        </footer>
+
+    </div>
+
+    <!-- Interactive 6-Image Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden flex flex-col p-4 overflow-y-auto">
+        <div class="max-w-md w-full mx-auto flex items-center justify-between py-4 sticky top-0 bg-black/50 backdrop-blur-md z-10 border-b border-white/10">
+            <h3 class="font-bold text-base">Photo Gallery </h3>
+            <button onclick="closeGallery()" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white text-sm hover:bg-white/20 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="max-w-md w-full mx-auto grid grid-cols-2 gap-3 py-4">
+            <!-- Gallery Image 1 -->
+            <div onclick="zoomImage(0)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/main.jpg" alt="Gallery 1" class="w-full h-full object-cover">
+            </div>
+            <!-- Gallery Image 2 -->
+            <div onclick="zoomImage(1)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/pic1.jpg" alt="Gallery 2" class="w-full h-full object-cover">
+            </div>
+            <!-- Gallery Image 3 -->
+            <div onclick="zoomImage(2)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/pic3.jpg" alt="Gallery 3" class="w-full h-full object-cover">
+            </div>
+            <!-- Gallery Image 4 -->
+            <div onclick="zoomImage(3)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/pic2.jpg" alt="Gallery 4" class="w-full h-full object-cover">
+            </div>
+            <!-- Gallery Image 5 -->
+            <div onclick="zoomImage(4)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/pic5.jpg" alt="Gallery 5" class="w-full h-full object-cover">
+            </div>
+            <!-- Gallery Image 6 -->
+            <div onclick="zoomImage(5)" class="rounded-2xl overflow-hidden h-44 border border-white/10 bg-slate-800 cursor-pointer hover:opacity-90 transition">
+                <img src="image/pic4.jpg" alt="Gallery 6" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Image Zoom Lightbox Modal with Next/Previous Buttons -->
+    <div id="zoomModal" class="fixed inset-0 bg-black/95 z-[60] hidden flex items-center justify-center p-4">
+        <!-- Close Button -->
+        <button onclick="closeZoom()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-lg hover:bg-white/30 transition z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Previous Button -->
+        <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Zoomed Image Display -->
+        <img id="zoomedImg" src="" alt="Zoomed Photo" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl">
+
+        <!-- Next Button -->
+        <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript for Modals & Image Navigation -->
+    <script>
+        const galleryImages = [
+            "image/main.jpg",
+            "image/pic1.jpg",
+            "image/pic3.jpg",
+            "image/pic2.jpg",
+            "image/pic5.jpg",
+            "image/pic4.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        function openGallery() {
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        function zoomImage(index) {
+            currentIndex = index;
+            document.getElementById('zoomedImg').src = galleryImages[currentIndex];
+            document.getElementById('zoomModal').classList.remove('hidden');
+        }
+        function closeZoom() {
+            document.getElementById('zoomModal').classList.add('hidden');
+        }
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            document.getElementById('zoomedImg').src = galleryImages[currentIndex];
+        }
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('zoomedImg').src = galleryImages[currentIndex];
+        }
+    </script>
+</body>
+</html>  
