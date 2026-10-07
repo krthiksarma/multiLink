@@ -182,7 +182,7 @@
         </div>
     </div>
 
-    <!-- Full-Screen Image Zoom Lightbox Modal with Next/Previous Buttons -->
+    <!-- Full-Screen Image Zoom Lightbox Modal with Swipe & Next/Previous Buttons -->
     <div id="zoomModal" class="fixed inset-0 bg-black/95 z-[60] hidden flex items-center justify-center p-4">
         <!-- Close Button -->
         <button onclick="closeZoom()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white text-lg hover:bg-white/30 transition z-10">
@@ -190,20 +190,20 @@
         </button>
 
         <!-- Previous Button -->
-        <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10">
+        <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10 hidden sm:flex">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
 
-        <!-- Zoomed Image Display -->
-        <img id="zoomedImg" src="" alt="Zoomed Photo" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl">
+        <!-- Zoomed Image Display with Touch Swipe Support -->
+        <img id="zoomedImg" src="" alt="Zoomed Photo" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl select-none">
 
         <!-- Next Button -->
-        <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10">
+        <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-xl transition z-10 hidden sm:flex">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
 
-    <!-- JavaScript for Modals & Image Navigation -->
+    <!-- JavaScript for Modals, Image Navigation, and Touch Swiping -->
     <script>
         const galleryImages = [
             "image/main.jpg",
@@ -239,6 +239,33 @@
         function prevImage() {
             currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             document.getElementById('zoomedImg').src = galleryImages[currentIndex];
+        }
+
+        // Touch Swipe Gesture Support for Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const zoomModal = document.getElementById('zoomModal');
+
+        zoomModal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        zoomModal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            const threshold = 50; // minimum distance for swipe
+            if (touchEndX < touchStartX - threshold) {
+                // Swiped Left -> Next Image
+                nextImage();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swiped Right -> Previous Image
+                prevImage();
+            }
         }
     </script>
 </body>
